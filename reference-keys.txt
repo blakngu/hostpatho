@@ -1,0 +1,6 @@
+fig:tabcodgene
+eq:rscu1
+eq:rcb1
+eq:dchi2
+análisis-estadístico-de-datos-genómicos
+genómica-composicional
