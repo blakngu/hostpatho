@@ -24,7 +24,7 @@
 <meta name="author" content="Lucía Spangenberg" />
 
 
-<meta name="date" content="2022-12-05" />
+<meta name="date" content="2022-12-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -159,7 +159,7 @@ div.csl-indent {
 <li><a href="./">Proka-Host 2022</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Notas y “tutorial” para genética de poblaciones humana y algo de epidemiología genética</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Notas y “tutorial” para genómica comparativa y composicional de procariotas, genética de poblaciones humana y algo de epidemiología genética</a></li>
 <li class="part"><span><b>Genética de Poblaciones</b></span></li>
 <li class="chapter" data-level="1" data-path="análisis-estadístico-de-datos-genómicos.html"><a href="análisis-estadístico-de-datos-genómicos.html"><i class="fa fa-check"></i><b>1</b> Análisis estadístico de datos genómicos</a>
 <ul>
@@ -169,6 +169,7 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="análisis-estadístico-de-datos-genómicos.html"><a href="análisis-estadístico-de-datos-genómicos.html#uso-de-codones"><i class="fa fa-check"></i>Uso de codones</a></li>
 <li class="chapter" data-level="" data-path="análisis-estadístico-de-datos-genómicos.html"><a href="análisis-estadístico-de-datos-genómicos.html#exploración-multivariada-análisis-de-correspondencia"><i class="fa fa-check"></i>Exploración multivariada: Análisis de Correspondencia</a></li>
 </ul></li>
+<li class="chapter" data-level="1.2" data-path="análisis-estadístico-de-datos-genómicos.html"><a href="análisis-estadístico-de-datos-genómicos.html#comparativa-con-metadatos-en-procariotas"><i class="fa fa-check"></i><b>1.2</b> Comparativa con metadatos en procariotas</a></li>
 </ul></li>
 <li class="part"><span><b>Genética de Poblaciones</b></span></li>
 <li class="chapter" data-level="2" data-path="genética-de-poblaciones.html"><a href="genética-de-poblaciones.html"><i class="fa fa-check"></i><b>2</b> Genética de Poblaciones</a>
@@ -462,17 +463,17 @@ Het_{Tur}=2p_{Tur}q_{Tur}=2*(1-0,01961161)*0,01961161=0,038454 \sim 3,85\%
 \end{equation}\]</span></p>
 <hr />
 <p>En un estudio de metanálisis se identificaron diferentes estudios previos con información de la prevalencia de PKU para diferentes poblaciones del Mediterráneo oriental y panamercianas. Las prevalencias observadas fueron las siguientes: <span class="math inline">\(21.8,15.97,10.39,6.79,19.78,7.48,4.18,6.83,1.47,19.22\)</span> casos por 100.000 nacidos para las mediterráneas, mientras que fue de <span class="math inline">\(10.40,5.12,5.82,5.28,4.80,9.20\)</span> para las panamericanas. Vamos a estimar la frecuencia del alelo defectuoso en las diferentes poblaciones, pero ahora usando <strong>R</strong>.</p>
-<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb289-1"><a href="epidemio.html#cb289-1" aria-hidden="true" tabindex="-1"></a>prevalenciasM<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fl">21.8</span>,<span class="fl">15.97</span>,<span class="fl">10.39</span>,<span class="fl">6.79</span>,<span class="fl">19.78</span>,<span class="fl">7.48</span>,<span class="fl">4.18</span>,<span class="fl">6.83</span>,<span class="fl">1.47</span>,<span class="fl">19.22</span>)<span class="sc">/</span><span class="fl">1e5</span></span>
-<span id="cb289-2"><a href="epidemio.html#cb289-2" aria-hidden="true" tabindex="-1"></a>(freqrecesivoM<span class="ot">&lt;-</span><span class="fu">sqrt</span>(prevalenciasM))</span></code></pre></div>
+<div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb366-1"><a href="epidemio.html#cb366-1" aria-hidden="true" tabindex="-1"></a>prevalenciasM<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fl">21.8</span>,<span class="fl">15.97</span>,<span class="fl">10.39</span>,<span class="fl">6.79</span>,<span class="fl">19.78</span>,<span class="fl">7.48</span>,<span class="fl">4.18</span>,<span class="fl">6.83</span>,<span class="fl">1.47</span>,<span class="fl">19.22</span>)<span class="sc">/</span><span class="fl">1e5</span></span>
+<span id="cb366-2"><a href="epidemio.html#cb366-2" aria-hidden="true" tabindex="-1"></a>(freqrecesivoM<span class="ot">&lt;-</span><span class="fu">sqrt</span>(prevalenciasM))</span></code></pre></div>
 <pre><code>##  [1] 0.014764823 0.012637247 0.010193135 0.008240146 0.014064139 0.008648699
 ##  [7] 0.006465292 0.008264381 0.003834058 0.013863621</code></pre>
-<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb291-1"><a href="epidemio.html#cb291-1" aria-hidden="true" tabindex="-1"></a>prevalenciasA<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fl">10.40</span>,<span class="fl">5.12</span>,<span class="fl">5.82</span>,<span class="fl">5.28</span>,<span class="fl">4.80</span>,<span class="fl">9.20</span>)<span class="sc">/</span><span class="fl">1e5</span></span>
-<span id="cb291-2"><a href="epidemio.html#cb291-2" aria-hidden="true" tabindex="-1"></a>(freqrecesivoA<span class="ot">&lt;-</span><span class="fu">sqrt</span>(prevalenciasA))</span></code></pre></div>
+<div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb368-1"><a href="epidemio.html#cb368-1" aria-hidden="true" tabindex="-1"></a>prevalenciasA<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fl">10.40</span>,<span class="fl">5.12</span>,<span class="fl">5.82</span>,<span class="fl">5.28</span>,<span class="fl">4.80</span>,<span class="fl">9.20</span>)<span class="sc">/</span><span class="fl">1e5</span></span>
+<span id="cb368-2"><a href="epidemio.html#cb368-2" aria-hidden="true" tabindex="-1"></a>(freqrecesivoA<span class="ot">&lt;-</span><span class="fu">sqrt</span>(prevalenciasA))</span></code></pre></div>
 <pre><code>## [1] 0.010198039 0.007155418 0.007628892 0.007266361 0.006928203 0.009591663</code></pre>
 <p><strong>¿Existen diferencias significativas entre estas poblaciones?</strong></p>
-<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb293-1"><a href="epidemio.html#cb293-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(prevalenciasA,prevalenciasM,<span class="at">col=</span><span class="fu">c</span>(<span class="st">&quot;red&quot;</span>,<span class="st">&quot;green&quot;</span>),<span class="at">varwidth=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb370-1"><a href="epidemio.html#cb370-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(prevalenciasA,prevalenciasM,<span class="at">col=</span><span class="fu">c</span>(<span class="st">&quot;red&quot;</span>,<span class="st">&quot;green&quot;</span>),<span class="at">varwidth=</span><span class="cn">TRUE</span>)</span></code></pre></div>
 <p><img src="Proka2022_files/figure-html/chunk701-1.png" width="672" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb294-1"><a href="epidemio.html#cb294-1" aria-hidden="true" tabindex="-1"></a>(midf<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="st">&quot;prevalencia&quot;</span><span class="ot">=</span><span class="fu">c</span>(prevalenciasA,prevalenciasM),<span class="st">&quot;poblacion&quot;</span><span class="ot">=</span><span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">&quot;A&quot;</span>,<span class="fu">length</span>(prevalenciasA)),<span class="fu">rep</span>(<span class="st">&quot;M&quot;</span>,<span class="fu">length</span>(prevalenciasM)))))</span></code></pre></div>
+<div class="sourceCode" id="cb371"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb371-1"><a href="epidemio.html#cb371-1" aria-hidden="true" tabindex="-1"></a>(midf<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="st">&quot;prevalencia&quot;</span><span class="ot">=</span><span class="fu">c</span>(prevalenciasA,prevalenciasM),<span class="st">&quot;poblacion&quot;</span><span class="ot">=</span><span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">&quot;A&quot;</span>,<span class="fu">length</span>(prevalenciasA)),<span class="fu">rep</span>(<span class="st">&quot;M&quot;</span>,<span class="fu">length</span>(prevalenciasM)))))</span></code></pre></div>
 <pre><code>##    prevalencia poblacion
 ## 1    0.0001040         A
 ## 2    0.0000512         A
@@ -490,7 +491,7 @@ Het_{Tur}=2p_{Tur}q_{Tur}=2*(1-0,01961161)*0,01961161=0,038454 \sim 3,85\%
 ## 14   0.0000683         M
 ## 15   0.0000147         M
 ## 16   0.0001922         M</code></pre>
-<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb296-1"><a href="epidemio.html#cb296-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kruskal.test</span>(prevalencia<span class="sc">~</span>poblacion,<span class="at">data=</span>midf)</span></code></pre></div>
+<div class="sourceCode" id="cb373"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb373-1"><a href="epidemio.html#cb373-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kruskal.test</span>(prevalencia<span class="sc">~</span>poblacion,<span class="at">data=</span>midf)</span></code></pre></div>
 <pre><code>## 
 ##  Kruskal-Wallis rank sum test
 ## 
@@ -536,33 +537,33 @@ solo alelo defectuoso.</p>
 <h4>Ejemplo 2.2<a href="epidemio.html#ejemplo-2.2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>En una enfermedad con base genética de carácter recesivo fueron identificados 5 variantes (alelos) que son disruptivas a nivel de la proteína codificada. Las frecuencias de estas 5 variantes fueron las siguientes: <span class="math inline">\(D^-_1=0.030, D^-_2=0.017, D^-_3=0.041,D^-_4=0.001,D^-_5=0.011\)</span>. Calcular la proporción de enfermos esperada de acuerdo al equilibrio de Hardy-Weinberg.</p>
 <p>De acuerdo a lo que vimos previamente, alcanza con sumar las frecuencias de todos los alelos deletéreos recesivos y luego calcular el cuadrado de este número, es decir:</p>
-<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb298-1"><a href="epidemio.html#cb298-1" aria-hidden="true" tabindex="-1"></a>fdel<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fl">0.030</span>, <span class="fl">0.017</span>, <span class="fl">0.041</span>,<span class="fl">0.001</span>,<span class="fl">0.011</span>)</span>
-<span id="cb298-2"><a href="epidemio.html#cb298-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(fdel)<span class="ot">&lt;-</span><span class="fu">paste</span>(<span class="st">&quot;D&quot;</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,<span class="at">sep=</span><span class="st">&quot;&quot;</span>)</span>
-<span id="cb298-3"><a href="epidemio.html#cb298-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(fdel)</span></code></pre></div>
+<div class="sourceCode" id="cb375"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb375-1"><a href="epidemio.html#cb375-1" aria-hidden="true" tabindex="-1"></a>fdel<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fl">0.030</span>, <span class="fl">0.017</span>, <span class="fl">0.041</span>,<span class="fl">0.001</span>,<span class="fl">0.011</span>)</span>
+<span id="cb375-2"><a href="epidemio.html#cb375-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(fdel)<span class="ot">&lt;-</span><span class="fu">paste</span>(<span class="st">&quot;D&quot;</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,<span class="at">sep=</span><span class="st">&quot;&quot;</span>)</span>
+<span id="cb375-3"><a href="epidemio.html#cb375-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(fdel)</span></code></pre></div>
 <pre><code>## [1] 0.1</code></pre>
-<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb300-1"><a href="epidemio.html#cb300-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(fdel)<span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb377"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb377-1"><a href="epidemio.html#cb377-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(fdel)<span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
 <pre><code>## [1] 0.01</code></pre>
 <p>La otra forma, es calcular la proporción esperada de cada genotipo recesivo (es decir, la combinación de un alelo recesivo por parte de padre con uno recesivo de parte de madre) y sumar todos los resultados:</p>
-<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="epidemio.html#cb302-1" aria-hidden="true" tabindex="-1"></a>matprop<span class="ot">&lt;-</span>fdel<span class="sc">%*%</span><span class="fu">t</span>(fdel)</span>
-<span id="cb302-2"><a href="epidemio.html#cb302-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(matprop)<span class="ot">&lt;-</span><span class="fu">names</span>(fdel)</span>
-<span id="cb302-3"><a href="epidemio.html#cb302-3" aria-hidden="true" tabindex="-1"></a>matprop</span></code></pre></div>
+<div class="sourceCode" id="cb379"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb379-1"><a href="epidemio.html#cb379-1" aria-hidden="true" tabindex="-1"></a>matprop<span class="ot">&lt;-</span>fdel<span class="sc">%*%</span><span class="fu">t</span>(fdel)</span>
+<span id="cb379-2"><a href="epidemio.html#cb379-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(matprop)<span class="ot">&lt;-</span><span class="fu">names</span>(fdel)</span>
+<span id="cb379-3"><a href="epidemio.html#cb379-3" aria-hidden="true" tabindex="-1"></a>matprop</span></code></pre></div>
 <pre><code>##         D1       D2       D3      D4       D5
 ## D1 0.00090 0.000510 0.001230 3.0e-05 0.000330
 ## D2 0.00051 0.000289 0.000697 1.7e-05 0.000187
 ## D3 0.00123 0.000697 0.001681 4.1e-05 0.000451
 ## D4 0.00003 0.000017 0.000041 1.0e-06 0.000011
 ## D5 0.00033 0.000187 0.000451 1.1e-05 0.000121</code></pre>
-<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="epidemio.html#cb304-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(matprop)</span></code></pre></div>
+<div class="sourceCode" id="cb381"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb381-1"><a href="epidemio.html#cb381-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(matprop)</span></code></pre></div>
 <pre><code>## [1] 0.01</code></pre>
 <p>que, obviamente, nos da el mismo resultado. Sin embargo, si las distintas combinaciones de alelos presentan diferente severidad, puede ser importante conocer las frecuencias esperadas de cada tipo de combinación. En este sentido, es muy fácil de obtener este resultado ya que lo único que tenemos que hacer es multiplicar por 2 las proporciones de los heterocigotos (porque hay dos combinaciones de alelo padre y alelo madre que producen el mismo genotipo), mientras que las frecuencias de los homocigotos (diagonla de la matriz) es la que ya aparece ahí. Una forma de hacer esto es la siguiente:</p>
-<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb306-1"><a href="epidemio.html#cb306-1" aria-hidden="true" tabindex="-1"></a><span class="fu">upper.tri</span>(matprop)<span class="sc">*</span>matprop<span class="sc">+</span><span class="fu">upper.tri</span>(matprop,<span class="at">diag=</span><span class="cn">TRUE</span>)<span class="sc">*</span>matprop</span></code></pre></div>
+<div class="sourceCode" id="cb383"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb383-1"><a href="epidemio.html#cb383-1" aria-hidden="true" tabindex="-1"></a><span class="fu">upper.tri</span>(matprop)<span class="sc">*</span>matprop<span class="sc">+</span><span class="fu">upper.tri</span>(matprop,<span class="at">diag=</span><span class="cn">TRUE</span>)<span class="sc">*</span>matprop</span></code></pre></div>
 <pre><code>##       D1       D2       D3      D4       D5
 ## D1 9e-04 0.001020 0.002460 6.0e-05 0.000660
 ## D2 0e+00 0.000289 0.001394 3.4e-05 0.000374
 ## D3 0e+00 0.000000 0.001681 8.2e-05 0.000902
 ## D4 0e+00 0.000000 0.000000 1.0e-06 0.000022
 ## D5 0e+00 0.000000 0.000000 0.0e+00 0.000121</code></pre>
-<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb308-1"><a href="epidemio.html#cb308-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">upper.tri</span>(matprop)<span class="sc">*</span>matprop<span class="sc">+</span><span class="fu">upper.tri</span>(matprop,<span class="at">diag=</span><span class="cn">TRUE</span>)<span class="sc">*</span>matprop)</span></code></pre></div>
+<div class="sourceCode" id="cb385"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb385-1"><a href="epidemio.html#cb385-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">upper.tri</span>(matprop)<span class="sc">*</span>matprop<span class="sc">+</span><span class="fu">upper.tri</span>(matprop,<span class="at">diag=</span><span class="cn">TRUE</span>)<span class="sc">*</span>matprop)</span></code></pre></div>
 <pre><code>## [1] 0.01</code></pre>
 </div>
 </div>
